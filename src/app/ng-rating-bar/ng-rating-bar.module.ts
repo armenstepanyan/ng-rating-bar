@@ -8,6 +8,7 @@ import { NgRatingBarComponent } from './ng-rating-bar.component';
   declarations: [NgRatingBarComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [NgRatingBarComponent]
 })
 export class NgRatingBarModule { }
