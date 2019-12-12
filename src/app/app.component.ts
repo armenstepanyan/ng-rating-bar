@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'rating';
+  ratingCount = 10;
+  value = 0;
 }

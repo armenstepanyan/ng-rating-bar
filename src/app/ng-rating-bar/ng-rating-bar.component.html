@@ -1,1 +1,4 @@
-<p>ng-rating-bar works!</p>
+<ng-container *ngFor="let item of numbers; let i = index">
+  <span class="star" (mouseenter)="enter(i)" (mouseleave)="leave(i)" [class.active]="i <= hoverIndex"
+    (click)="setSelected(i)"></span>
+</ng-container>
