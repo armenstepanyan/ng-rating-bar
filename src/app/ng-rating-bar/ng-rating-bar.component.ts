@@ -7,6 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange
 })
 export class NgRatingBarComponent implements OnInit, OnChanges {
   @Input() ratingCount: number;
+  @Input() colorActive: string;
+  @Input() colorDefault: string;
   @Input() value: number;
   @Output() valueChange: EventEmitter<number> = new EventEmitter<number>();
 
@@ -17,6 +19,8 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.ratingCount = this.ratingCount || 5;
+    this.colorActive = this.colorActive || '#edb867';
+    this.colorDefault = this.colorDefault || '#d2d2d2';
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -33,10 +37,10 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
     this.hoverIndex = this.selectedValue - 1;
   }
 
-  enter(i) {
+  enter(i: number) {
     this.hoverIndex = i;
   }
-  leave(i) {
+  leave(i: number) {
     this.hoverIndex = this.selectedValue - 1;
   }
 

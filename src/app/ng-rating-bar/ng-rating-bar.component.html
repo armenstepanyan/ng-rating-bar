@@ -1,4 +1,14 @@
+<style>
+.star.active:after {
+  color: attr(data-after-content);
+}
+</style>
 <ng-container *ngFor="let item of numbers; let i = index">
-  <span class="star" (mouseenter)="enter(i)" (mouseleave)="leave(i)" [class.active]="i <= hoverIndex"
-    (click)="setSelected(i)"></span>
+  <span
+  class="star"
+  (mouseenter)="enter(i)"
+  (mouseleave)="leave(i)"
+  (click)="setSelected(i)"
+  [ngStyle]="{'color': (i <= hoverIndex) ? colorActive : colorDefault}"
+  ></span>
 </ng-container>
