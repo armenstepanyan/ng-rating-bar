@@ -1,14 +1,26 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges
+} from "@angular/core";
+import { FormControl } from "@angular/forms";
 
 @Component({
-  selector: 'app-ng-rating-bar',
-  templateUrl: './ng-rating-bar.component.html',
-  styleUrls: ['./ng-rating-bar.component.scss']
+  selector: "app-ng-rating-bar",
+  templateUrl: "./ng-rating-bar.component.html",
+  styleUrls: ["./ng-rating-bar.component.scss"]
 })
 export class NgRatingBarComponent implements OnInit, OnChanges {
   @Input() ratingCount: number;
   @Input() colorActive: string;
   @Input() colorDefault: string;
+
+  @Input() control: FormControl;
+
   @Input() value: number;
   @Output() valueChange: EventEmitter<number> = new EventEmitter<number>();
 
@@ -18,13 +30,14 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnInit() {
+    console.log(this.control);
     this.ratingCount = this.ratingCount || 5;
     this.colorActive = this.colorActive || '#edb867';
     this.colorDefault = this.colorDefault || '#d2d2d2';
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.value) {
+    if (changes.value || this.control) {
       this.initNumbers();
     }
   }
@@ -33,7 +46,12 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
     this.numbers = Array(this.ratingCount)
       .fill(0)
       .map((x, i) => i);
-    this.selectedValue = this.value;
+    if (this.control) {
+      this.selectedValue = this.control.value;
+    } else {
+      this.selectedValue = this.value;
+    }
+
     this.hoverIndex = this.selectedValue - 1;
   }
 
@@ -44,9 +62,14 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
     this.hoverIndex = this.selectedValue - 1;
   }
 
-  setSelected(i) {
+  setSelected(i: number) {
     // set/unset  selected value on same value click
     this.selectedValue = this.selectedValue === i + 1 ? 0 : i + 1;
-    this.valueChange.emit(this.selectedValue);
+    if (this.control) {
+      this.control.setValue(this.selectedValue || null);
+      this.control.markAllAsTouched();
+    } else {
+      this.valueChange.emit(this.selectedValue);
+    }
   }
 }

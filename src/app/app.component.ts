@@ -19,18 +19,18 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     this.myForm = this.fb.group({
-      rating: [5, Validators.required]
+      rating: [null, Validators.required]
     });
 
   }
 
-  onChange($event) {
+/*  onChange($event) {
     const value = $event > 0 ? $event : null;
     console.log(value);
     this.myForm.get('rating').setValue(value);
     this.myForm.get('rating').markAllAsTouched();
   }
-
+*/
   submitForm() {
     this.myForm.get('rating').markAllAsTouched();
     console.log(this.myForm.value);

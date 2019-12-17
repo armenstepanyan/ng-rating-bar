@@ -8,7 +8,7 @@ Rate us
 <p>
   Reactive form
 </p>
-<div>
+<!--<div>
 <app-ng-rating-bar
   [value]="value"
   (valueChange)="onChange($event)"
@@ -20,3 +20,19 @@ Rate us
   <button (click)="submitForm()">Submit</button>
 </p>
 </div>
+-->
+<div>
+    <form [formGroup]="myForm">
+      <app-ng-rating-bar
+        [control]="myForm.get('rating')"
+        [ratingCount]="ratingCount"
+      ></app-ng-rating-bar>
+      <p *ngIf="myForm.get('rating').touched && myForm.get('rating').hasError('required')">
+        Field is required
+      </p>
+
+  <p>
+    <button (click)="submitForm()">Submit</button>
+  </p>
+  </form>
+  </div>
