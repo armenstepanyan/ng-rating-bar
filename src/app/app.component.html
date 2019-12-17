@@ -4,3 +4,19 @@ Rate us
 <p>
   Selected value {{ value }}
 </p>
+
+<p>
+  Reactive form
+</p>
+<div>
+<app-ng-rating-bar
+  [value]="value"
+  (valueChange)="onChange($event)"
+  [ratingCount]="ratingCount"
+></app-ng-rating-bar>
+<p *ngIf="myForm.get('rating').touched && myForm.get('rating').hasError('required')">Field is required</p>
+
+<p>
+  <button (click)="submitForm()">Submit</button>
+</p>
+</div>

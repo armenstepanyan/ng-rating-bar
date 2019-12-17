@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NgRatingBarModule } from './ng-rating-bar/ng-rating-bar.module';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,9 @@ import { NgRatingBarModule } from './ng-rating-bar/ng-rating-bar.module';
   ],
   imports: [
     BrowserModule,
-    NgRatingBarModule
+    NgRatingBarModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
