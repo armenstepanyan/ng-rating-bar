@@ -6,13 +6,13 @@ import {
   EventEmitter,
   OnChanges,
   SimpleChanges
-} from "@angular/core";
-import { FormControl } from "@angular/forms";
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: "app-ng-rating-bar",
-  templateUrl: "./ng-rating-bar.component.html",
-  styleUrls: ["./ng-rating-bar.component.scss"]
+  selector: 'app-ng-rating-bar',
+  templateUrl: './ng-rating-bar.component.html',
+  styleUrls: ['./ng-rating-bar.component.scss']
 })
 export class NgRatingBarComponent implements OnInit, OnChanges {
   @Input() ratingCount: number;
@@ -23,6 +23,7 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
 
   @Input() value: number;
   @Output() valueChange: EventEmitter<number> = new EventEmitter<number>();
+  @Output() hoverChange: EventEmitter<number> = new EventEmitter<number>();
 
   numbers = [];
   hoverIndex = -1;
@@ -30,7 +31,6 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.control);
     this.ratingCount = this.ratingCount || 5;
     this.colorActive = this.colorActive || '#edb867';
     this.colorDefault = this.colorDefault || '#d2d2d2';
@@ -57,6 +57,9 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
 
   enter(i: number) {
     this.hoverIndex = i;
+    this.hoverChange.emit(1 + i);
+
+
   }
   leave(i: number) {
     this.hoverIndex = this.selectedValue - 1;

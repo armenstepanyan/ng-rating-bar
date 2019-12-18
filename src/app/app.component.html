@@ -36,3 +36,24 @@ Rate us
   </p>
   </form>
   </div>
+
+  <h2>
+    Hover
+  </h2>
+  Value is:
+  <b
+    [class.excellent]="hoverValue === 7"
+    [class.good]="hoverValue > 4 && hoverValue < 7"
+    [class.notBad]="hoverValue > 2 && hoverValue <= 4 "
+    [class.bad]="hoverValue <= 2"
+  >
+    {{ hoverValue }}
+  </b>
+  <p>
+
+    <app-ng-rating-bar
+      [(value)]="value2"
+      (hoverChange)="hoverValue = $event"
+      [ratingCount]="7"
+    ></app-ng-rating-bar>
+  </p>
