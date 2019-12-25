@@ -18,6 +18,7 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
   @Input() ratingCount: number;
   @Input() colorActive: string;
   @Input() colorDefault: string;
+  @Input() disabled: boolean;
 
   @Input() control: FormControl;
 
@@ -56,16 +57,25 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
   }
 
   enter(i: number) {
+    if (this.disabled) {
+      return;
+    }
     this.hoverIndex = i;
     this.hoverChange.emit(1 + i);
 
 
   }
   leave(i: number) {
+    if (this.disabled) {
+      return;
+    }
     this.hoverIndex = this.selectedValue - 1;
   }
 
   setSelected(i: number) {
+    if (this.disabled) {
+      return;
+    }
     // set/unset  selected value on same value click
     this.selectedValue = this.selectedValue === i + 1 ? 0 : i + 1;
     if (this.control) {
