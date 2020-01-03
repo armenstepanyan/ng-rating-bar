@@ -1,27 +1,100 @@
 # Rating
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.7.
+## Simple usage
+```
+<app-ng-rating-bar 
+  [(value)]="value" 
+  [ratingCount]="10" 
+></app-ng-rating-bar>
+Value is {{ value }}
+```
 
-## Development server
+## Usage with output event
+```
+    <app-ng-rating-bar
+      [value]="value"
+      (valueChange)="onValueChange($event)"
+      [ratingCount]="10"
+    ></app-ng-rating-bar>
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+In component 
+```
+onValueChange($event: number) {
+  this.value = $event
+}
+```
 
-## Code scaffolding
+## Disabled rating
+```
+  <app-ng-rating-bar
+    [value]="5"
+    [ratingCount]="7"
+    [disabled]="true"
+  ></app-ng-rating-bar>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
 
-## Build
+## Using in reactive form
+In html view
+```
+<form [formGroup]="myForm">
+      <app-ng-rating-bar
+        [control]="myForm.get('rating')"
+        [ratingCount]="ratingCount"
+      ></app-ng-rating-bar>
+      
+      <p *ngIf="myForm.get('rating').touched && myForm.get('rating').hasError('required')">
+        Field is required
+      </p>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  <p>
+    <button (click)="submitForm()">Submit</button>
+  </p>
+  </form>
+```
+In Component
 
-## Running unit tests
+```
+  ngOnInit() {
+    this.myForm = this.fb.group({
+      rating: [null, Validators.required]
+    });
+  }
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  submitForm() {
+    this.myForm.get('rating').markAllAsTouched();
+    console.log(this.myForm.value);
+  }
+```
 
-## Running end-to-end tests
+## Hover output
+```
+  Value is:
+  <b
+    [class.excellent]="hoverValue === 7"
+    [class.good]="hoverValue > 4 && hoverValue < 7"
+    [class.notBad]="hoverValue > 2 && hoverValue <= 4 "
+    [class.bad]="hoverValue <= 2"
+  >
+    {{ hoverValue }}
+  </b>
+  <p>
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    <app-ng-rating-bar
+      [(value)]="value2"
+      (hoverChange)="hoverValue = $event"
+      [ratingCount]="7"
+    ></app-ng-rating-bar>
+  </p>
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Set custom color
+```
+  <app-ng-rating-bar
+    [(value)]="value" 
+    [ratingCount]="ratingCount" 
+    colorActive="red" 
+    colorDefault="gray"
+  ></app-ng-rating-bar>
+```
