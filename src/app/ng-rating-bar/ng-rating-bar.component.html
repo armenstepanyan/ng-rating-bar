@@ -5,5 +5,12 @@
   (mouseleave)="leave(i)"
   (click)="setSelected(i)"
   [ngStyle]="{'color': (i <= hoverIndex) ? colorActive : colorDefault}"
-  ></span>
+  >
+  <span
+  class="star half"
+  *ngIf="!isHovered && i == halfIndex"
+  [style.width.%]="halfValue"
+  [style.color]="colorActive"
+  >★</span>
+</span>
 </ng-container>

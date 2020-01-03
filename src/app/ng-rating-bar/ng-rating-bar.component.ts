@@ -19,6 +19,7 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
   @Input() colorActive: string;
   @Input() colorDefault: string;
   @Input() disabled: boolean;
+  @Input() resetAble: boolean;
 
   @Input() control: FormControl;
 
@@ -29,6 +30,9 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
   numbers = [];
   hoverIndex = -1;
   selectedValue = 0;
+  halfValue = 0;
+  halfIndex = -1;
+  isHovered = false;
   constructor() {}
 
   ngOnInit() {
@@ -40,6 +44,7 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes.value || this.control) {
       this.initNumbers();
+      this.calculateHalfValue();
     }
   }
 
@@ -60,6 +65,7 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
     if (this.disabled) {
       return;
     }
+    this.isHovered = true;
     this.hoverIndex = i;
     this.hoverChange.emit(1 + i);
 
@@ -69,6 +75,7 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
     if (this.disabled) {
       return;
     }
+    this.isHovered = false;
     this.hoverIndex = this.selectedValue - 1;
   }
 
@@ -76,13 +83,27 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
     if (this.disabled) {
       return;
     }
+
     // set/unset  selected value on same value click
-    this.selectedValue = this.selectedValue === i + 1 ? 0 : i + 1;
+    if (this.resetAble && this.selectedValue === i + 1) {
+      this.selectedValue = 0;
+    } else {
+      this.selectedValue = i + 1;
+    }
+
     if (this.control) {
       this.control.setValue(this.selectedValue || null);
       this.control.markAllAsTouched();
     } else {
       this.valueChange.emit(this.selectedValue);
     }
+    this.isHovered = false;
+    this.calculateHalfValue();
   }
+
+  calculateHalfValue() {
+    this.halfValue = Math.round(100 * (this.selectedValue - Math.floor(this.selectedValue)) );
+    this.halfIndex = Math.ceil(this.selectedValue) - 1;
+  }
+
 }

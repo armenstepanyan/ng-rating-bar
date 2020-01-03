@@ -13,6 +13,10 @@ export class AppComponent implements OnInit {
   value2 = 0;
   hoverValue = 0;
 
+  halfValue = 0;
+  count = 0;
+  totalRates = 0;
+
   myForm: FormGroup;
   constructor(private fb: FormBuilder) {}
 
@@ -20,6 +24,13 @@ export class AppComponent implements OnInit {
     this.myForm = this.fb.group({
       rating: [null, Validators.required]
     });
+  }
+
+  halfChange($event) {
+    this.count++;
+    this.totalRates += $event;
+    console.log($event, this.totalRates, this.count);
+    this.halfValue = this.totalRates / this.count;
   }
 
   /*  onChange($event) {

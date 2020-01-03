@@ -55,6 +55,7 @@ Rate us
       [(value)]="value2"
       (hoverChange)="hoverValue = $event"
       [ratingCount]="7"
+      [resetAble]="true"
     ></app-ng-rating-bar>
   </p>
 
@@ -67,3 +68,13 @@ Rate us
       [disabled]="true"
     ></app-ng-rating-bar>
   </p>
+
+
+  <p>
+    <app-ng-rating-bar
+      [value]="halfValue"
+      (valueChange)="halfChange($event)"
+      [ratingCount]="10"
+    ></app-ng-rating-bar>
+  </p>
+  <p>Value is {{ halfValue }}</p>
