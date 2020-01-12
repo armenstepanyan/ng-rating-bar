@@ -1,5 +1,5 @@
 Rate us
-<app-ng-rating-bar [(value)]="value" [ratingCount]="ratingCount" colorActive="red" colorDefault="gray"></app-ng-rating-bar>
+<ng-rating-bar [(value)]="value" [ratingCount]="ratingCount" colorActive="red" colorDefault="gray"></ng-rating-bar>
 
 <p>
   Selected value {{ value }}
@@ -9,11 +9,11 @@ Rate us
   Reactive form
 </p>
 <!--<div>
-<app-ng-rating-bar
+<ng-rating-bar
   [value]="value"
   (valueChange)="onChange($event)"
   [ratingCount]="ratingCount"
-></app-ng-rating-bar>
+></ng-rating-bar>
 <p *ngIf="myForm.get('rating').touched && myForm.get('rating').hasError('required')">Field is required</p>
 
 <p>
@@ -23,10 +23,10 @@ Rate us
 -->
 <div>
     <form [formGroup]="myForm">
-      <app-ng-rating-bar
+      <ng-rating-bar
         [control]="myForm.get('rating')"
         [ratingCount]="ratingCount"
-      ></app-ng-rating-bar>
+      ></ng-rating-bar>
       <p *ngIf="myForm.get('rating').touched && myForm.get('rating').hasError('required')">
         Field is required
       </p>
@@ -51,30 +51,30 @@ Rate us
   </b>
   <p>
 
-    <app-ng-rating-bar
+    <ng-rating-bar
       [(value)]="value2"
       (hoverChange)="hoverValue = $event"
       [ratingCount]="7"
       [resetAble]="true"
-    ></app-ng-rating-bar>
+    ></ng-rating-bar>
   </p>
 
   <h2>Disabled</h2>
   <p>
 
-    <app-ng-rating-bar
+    <ng-rating-bar
       [value]="5"
       [ratingCount]="7"
       [disabled]="true"
-    ></app-ng-rating-bar>
+    ></ng-rating-bar>
   </p>
 
 
   <p>
-    <app-ng-rating-bar
+    <ng-rating-bar
       [value]="halfValue"
       (valueChange)="halfChange($event)"
       [ratingCount]="10"
-    ></app-ng-rating-bar>
+    ></ng-rating-bar>
   </p>
   <p>Value is {{ halfValue }}</p>

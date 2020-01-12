@@ -2,20 +2,20 @@
 
 ## Simple usage
 ```
-<app-ng-rating-bar 
+<ng-rating-bar 
   [(value)]="value" 
   [ratingCount]="10" 
-></app-ng-rating-bar>
+></ng-rating-bar>
 Value is {{ value }}
 ```
 
 ## Usage with output event
 ```
-    <app-ng-rating-bar
+    <ng-rating-bar
       [value]="value"
       (valueChange)="onValueChange($event)"
       [ratingCount]="10"
-    ></app-ng-rating-bar>
+    ></ng-rating-bar>
 ```
 
 In component 
@@ -27,11 +27,11 @@ onValueChange($event: number) {
 
 ## Disabled rating
 ```
-  <app-ng-rating-bar
+  <ng-rating-bar
     [value]="5"
     [ratingCount]="7"
     [disabled]="true"
-  ></app-ng-rating-bar>
+  ></ng-rating-bar>
 
 ```
 
@@ -39,10 +39,10 @@ onValueChange($event: number) {
 In html view
 ```
 <form [formGroup]="myForm">
-      <app-ng-rating-bar
+      <ng-rating-bar
         [control]="myForm.get('rating')"
         [ratingCount]="ratingCount"
-      ></app-ng-rating-bar>
+      ></ng-rating-bar>
       
       <p *ngIf="myForm.get('rating').touched && myForm.get('rating').hasError('required')">
         Field is required
@@ -81,20 +81,20 @@ In Component
   </b>
   <p>
 
-    <app-ng-rating-bar
+    <ng-rating-bar
       [(value)]="value2"
       (hoverChange)="hoverValue = $event"
       [ratingCount]="7"
-    ></app-ng-rating-bar>
+    ></ng-rating-bar>
   </p>
 ```
 
 ## Set custom color
 ```
-  <app-ng-rating-bar
+  <ng-rating-bar
     [(value)]="value" 
     [ratingCount]="ratingCount" 
     colorActive="red" 
     colorDefault="gray"
-  ></app-ng-rating-bar>
+  ></ng-rating-bar>
 ```

@@ -10,7 +10,7 @@ import {
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-ng-rating-bar',
+  selector: 'ng-rating-bar',
   templateUrl: './ng-rating-bar.component.html',
   styleUrls: ['./ng-rating-bar.component.scss']
 })
