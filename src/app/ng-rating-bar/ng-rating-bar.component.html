@@ -6,6 +6,7 @@
   (click)="setSelected(i)"
   [ngStyle]="{'color': (i <= hoverIndex) ? colorActive : colorDefault}"
   >
+  ★
   <span
   class="star half"
   *ngIf="!isHovered && i == halfIndex"

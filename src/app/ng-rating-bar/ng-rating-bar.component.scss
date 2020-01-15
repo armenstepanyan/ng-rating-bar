@@ -1,25 +1,26 @@
 .star {
   position: relative;
 }
-.star:after {
-  content: '\2605';
-  height: 20px;
-  width: 20px;
+.star:not(.half) {
+  min-height: 20px;
+  min-width: 20px;
   margin-right: 5px;
   font-size: 28px;
   cursor: pointer;
+  display: inline-block;
 }
 
-.star.active:after {
+.star.active {
   color: inherit;
 }
 
 .star.half {
-    height: 40px;
-    width: 65%;
-    font-size: 28px;
+    height: inherit;
+    font-size: inherit;
     cursor: pointer;
     position: absolute;
+    left: 0;
+    top: 0;
     display: inline-block;
     overflow: hidden;
 
