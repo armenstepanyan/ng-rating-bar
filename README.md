@@ -98,3 +98,12 @@ In Component
     colorDefault="gray"
   ></ng-rating-bar>
 ```
+
+## Custom styles
+```
+  <ng-rating-bar
+      value="5"
+      [ratingCount]="10"
+      [styles]="{backgroundColor: '#0965ee', margin: '10px', fontSize: '32px'}"
+    ></ng-rating-bar>
+```
