@@ -9,6 +9,12 @@ import {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
+interface Styles {
+  fontSize?: string;
+  backgroundColor?: string;
+  margin?: string;
+}
+
 @Component({
   selector: 'ng-rating-bar',
   templateUrl: './ng-rating-bar.component.html',
@@ -22,6 +28,8 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
   @Input() resetAble: boolean;
 
   @Input() control: FormControl;
+
+  @Input() styles: Styles;
 
   @Input() value: number;
   @Output() valueChange: EventEmitter<number> = new EventEmitter<number>();
@@ -39,6 +47,15 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
     this.ratingCount = this.ratingCount || 5;
     this.colorActive = this.colorActive || '#edb867';
     this.colorDefault = this.colorDefault || '#d2d2d2';
+
+
+    if (!this.styles) {
+      this.styles = {
+        fontSize: '28px',
+        backgroundColor: '',
+        margin: '5px'
+      };
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {

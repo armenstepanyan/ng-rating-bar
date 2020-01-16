@@ -8,20 +8,7 @@ Rate us
 <p>
   Reactive form
 </p>
-<!--<div>
-<ng-rating-bar
-  [value]="value"
-  (valueChange)="onChange($event)"
-  [ratingCount]="ratingCount"
-></ng-rating-bar>
-<p *ngIf="myForm.get('rating').touched && myForm.get('rating').hasError('required')">Field is required</p>
-
-<p>
-  <button (click)="submitForm()">Submit</button>
-</p>
-</div>
--->
-<!-- <div>
+<div>
     <form [formGroup]="myForm">
       <ng-rating-bar
         [control]="myForm.get('rating')"
@@ -63,13 +50,13 @@ Rate us
   <p>
 
     <ng-rating-bar
-      [value]="5"
+      [value]="4.5"
       [ratingCount]="7"
       [disabled]="true"
     ></ng-rating-bar>
   </p>
 
--->
+
   <p>
     <ng-rating-bar
       [value]="halfValue"
@@ -78,3 +65,13 @@ Rate us
     ></ng-rating-bar>
   </p>
   <p>Value is {{ halfValue }}</p>
+
+  <h3>Styles</h3>
+  <div>
+    <ng-rating-bar
+      value="5"
+      [ratingCount]="10"
+      [styles]="styles"
+    ></ng-rating-bar>
+    <pre>styles = {{ styles | json }} </pre>
+  </div>

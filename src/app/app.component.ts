@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   totalRates = 0;
 
   myForm: FormGroup;
+  styles = {backgroundColor: '#0965ee', margin: '10px', fontSize: '32px'};
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
