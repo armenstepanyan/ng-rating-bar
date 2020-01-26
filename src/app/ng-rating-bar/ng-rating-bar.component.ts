@@ -110,7 +110,7 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
 
     if (this.control) {
       this.control.setValue(this.selectedValue || null);
-      this.control.markAllAsTouched();
+      this.control.markAsTouched();
     } else {
       this.valueChange.emit(this.selectedValue);
     }
