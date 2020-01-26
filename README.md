@@ -1,5 +1,6 @@
 # Rating
 
+[Stackblitz Demo](https://stackblitz.com/edit/ng-rating-bar "Demo")
 ## Simple usage
 ```
 <ng-rating-bar 
@@ -8,6 +9,25 @@
 ></ng-rating-bar>
 Value is {{ value }}
 ```
+
+## Properties
+
+| Name  | Type | Required | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| value  | number  | Required       | 0 |
+| ratingCount | number  | Required | 5 |
+| disabled | boolean  | Optional | false |
+| resetAble | boolean  | Optional | false |
+| colorActive | string  | Optional | #edb867  |
+| colorDefault | string  | Optional | #d2d2d2  |
+| styles | Object | Optional | { fontSize: '28px', backgroundColor: '', margin: '5px' } |
+
+## Events
+| Event  | Parameter | Description |
+| ------ | --------- | ----------- |
+| valueChange | (value: number) | Callback to invoke when value was changed |
+| hoverChange | (value: number) | Triggered when on hover change |
+
 
 ## Usage with output event
 ```
