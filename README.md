@@ -1,6 +1,21 @@
 # Rating
 
 [Stackblitz Demo](https://stackblitz.com/edit/ng-rating-bar "Demo")
+
+## Import
+
+```
+import { NgRatingBarModule } from 'ng-rating-bar';
+
+@NgModule({
+  declarations: [...],
+  imports: [
+    BrowserModule,
+	  NgRatingBarModule
+  ]
+})
+```
+
 ## Simple usage
 ```
 <ng-rating-bar 
