@@ -1,6 +1,14 @@
 # Rating
 
-[Stackblitz Demo](https://stackblitz.com/edit/ng-rating-bar "Demo")
+[Stackblitz Demo](https://stackblitz.com/edit/ng-rating-bar "Demo") 
+
+[npm package](https://www.npmjs.com/package/ng-rating-bar)
+
+
+## Install
+```
+npm i ng-rating-bar
+```
 
 ## Import
 
