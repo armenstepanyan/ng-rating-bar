@@ -147,6 +147,37 @@ In Component
   <ng-rating-bar
       value="5"
       [ratingCount]="10"
-      [styles]="{backgroundColor: '#0965ee', margin: '10px', fontSize: '32px'}"
+      [styles]="{backgroundColor: '#0965ee', margin: '10px', fontSize: '32px', padding: '2px'}"
     ></ng-rating-bar>
+```
+### New from version 1.2.0
+### Using html symbols
+Example of html symbols [https://www.w3schools.com/charsets/ref_utf_symbols.asp](https://www.w3schools.com/charsets/ref_utf_symbols.asp)
+```
+<ng-rating-bar
+  value="5"
+  [ratingCount]="10"
+  [symbol]="'&#9728;'"
+  [resetAble]="true"
+></ng-rating-bar>
+```
+
+### Using font awesome icons
+If you have installed font awesome into your project you can pass icon as `Input`
+In conponent
+```
+export class AppComponent implements OnInit {
+
+  faIcon = '<i class="fa fa-car"></i>';
+  constructor(private fb: FormBuilder) {}
+  ....
+}
+```
+In html
+```
+<ng-rating-bar
+  value="5"
+  [ratingCount]="10"
+  [symbol]="faIcon"
+></ng-rating-bar>
 ```
