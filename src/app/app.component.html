@@ -75,3 +75,27 @@ Rate us
     ></ng-rating-bar>
     <pre>styles = {{ styles | json }} </pre>
   </div>
+
+  <div>
+    <h3>Using html symbols</h3>
+    <ng-rating-bar
+      value="5"
+      [ratingCount]="10"
+      [symbol]="'&#9728;'"
+      [styles]="{fontSize: '36px', padding: '2px 3px'}"
+      [resetAble]="true"
+    ></ng-rating-bar>
+
+  </div>
+
+  <h3>Using font-awesome icon</h3>
+  <p>If you have installed font awesome into your project you can use font awesome icons</p>
+  <div>
+    <ng-rating-bar
+      value="5"
+      [ratingCount]="10"
+      [symbol]="faIcon"
+      colorActive="blue"
+    ></ng-rating-bar>
+  </div>
+

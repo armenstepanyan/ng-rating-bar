@@ -8,14 +8,18 @@
     [style.fontSize]="styles.fontSize"
     [style.backgroundColor]="styles.backgroundColor"
     [style.marginRight]="styles.margin"
+    [style.padding]="styles.padding"
+    [innerHTML]="symbol"
   >
-  ★
   <span
     class="star half"
     *ngIf="!isHovered && i == halfIndex"
     [style.width.%]="halfValue"
     [style.color]="colorActive"
-  >★</span>
+    [innerHTML]="symbol"
+    [style.padding]="styles.padding"
+  >
+</span>
 </span>
 </ng-container>
 

@@ -13,6 +13,7 @@ interface Styles {
   fontSize?: string;
   backgroundColor?: string;
   margin?: string;
+  padding?: string;
 }
 
 @Component({
@@ -34,6 +35,7 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
   @Input() value: number;
   @Output() valueChange: EventEmitter<number> = new EventEmitter<number>();
   @Output() hoverChange: EventEmitter<number> = new EventEmitter<number>();
+  @Input() symbol = '&#9733;';
 
   numbers = [];
   hoverIndex = -1;
@@ -53,7 +55,8 @@ export class NgRatingBarComponent implements OnInit, OnChanges {
       this.styles = {
         fontSize: '28px',
         backgroundColor: '',
-        margin: '5px'
+        margin: '5px',
+        padding: '0'
       };
     }
   }

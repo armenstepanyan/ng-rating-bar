@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
 
   myForm: FormGroup;
   styles = {backgroundColor: '#0965ee', margin: '10px', fontSize: '32px'};
+  faIcon = '<i class="fa fa-car"></i>';
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
