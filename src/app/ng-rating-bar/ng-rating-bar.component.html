@@ -9,8 +9,8 @@
     [style.backgroundColor]="styles.backgroundColor"
     [style.marginRight]="styles.margin"
     [style.padding]="styles.padding"
-    [innerHTML]="symbol"
   >
+  <span [innerHTML]="symbol"></span>
   <span
     class="star half"
     *ngIf="!isHovered && i == halfIndex"
